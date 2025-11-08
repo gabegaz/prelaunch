@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zewd AI pre-launch site",
-  description: "Zewd AI is an analytics platform",
+  title: "Bitawd pre-launch site",
+  description: "Bitawd is an analytics platform",
 };
 
 export default function RootLayout({
