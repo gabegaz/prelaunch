@@ -8,7 +8,10 @@ import Link from "next/link";
 
 const Home: NextPage = () => {
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState<{ text: string; type: "success" | "error" | "" }>({
+  const [message, setMessage] = useState<{
+    text: string;
+    type: "success" | "error" | "";
+  }>({
     text: "",
     type: "",
   });
@@ -39,7 +42,10 @@ const Home: NextPage = () => {
       }
     } catch (error) {
       console.error("Submission error:", error);
-      setMessage({ text: "An error occurred during subscription.", type: "error" });
+      setMessage({
+        text: "An error occurred during subscription.",
+        type: "error",
+      });
     } finally {
       setLoading(false);
     }
@@ -48,10 +54,10 @@ const Home: NextPage = () => {
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col">
       <Head>
-        <title>Zewd AI - Coming Soon</title>
+        <title>Bitawd - A data analytics platform for Ethiopia</title>
         <meta
           name="description"
-          content="Zewd AI — Ethiopia's first business intelligence and data analytics platform."
+          content="Bitawd — Ethiopia's first business intelligence and data analytics platform."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -60,47 +66,52 @@ const Home: NextPage = () => {
         {/* Header */}
         <header className="flex justify-between items-center py-6">
           {/* Left Section: Logo + Brand */}
-          <div className="flex items-center space-x-2">
-            <Link href="/" className="flex items-center text-blue-400">
-              <Crown className="w-7 h-7" />
+          <div className="flex items-center space-x-1">
+            <Link
+              href="/"
+              className="flex items-center text-blue-400 font-bold"
+            >
+              <Crown className="w-6 h-6" />
             </Link>
-            <Link href="/" className="flex items-center">
-              <span className="text-lg sm:text-xl md:text-2xl font-medium">
-                <span className="text-white">Zewd</span>
-                <span className="text-blue-400 font-bold">AI</span>
+
+            <Link href="/" className="flex items-center space-x-1 ">
+              <span className="text-2xl md:text-2xl lg:text-3xl font-semibold tracking-tight">
+                <span className="text-blue-100">B</span>
+                <span className="text-blue-200">i</span>
+                <span className="text-blue-300">t</span>
+                <span className="text-blue-400">a</span>
+                <span className="text-blue-500">w</span>
+                <span className="text-blue-600">d</span>
               </span>
             </Link>
           </div>
-
-          {/* Right Section: Nav Links */}
-          <nav>
-            <a href="#features" className="text-lg hover:text-gray-400 transition-colors">
-              Features
-            </a>
-          </nav>
         </header>
 
         {/* Hero Section - Centered with custom styling */}
-        <section className="text-center py-32 flex flex-col justify-center items-center min-h-[70vh]">
-          <h1 className="text-5xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold mb-4 sm:mb-6 animate-in slide-in-from-bottom duration-700 delay-100 leading-tight">
-            <span className="bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent block mb-1 sm:mb-2">
-              Know More
-            </span>
-            <span className="bg-gradient-to-b from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent block mb-1 sm:mb-2">
-              Decide Smarter
-            </span>
-            <span className="bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent block mb-1 sm:mb-2">
-              With Zewd AI
-            </span>
+        <section className="text-center py-32 flex flex-col justify-center items-center min-h-[80vh]">
+          <h1 className="text-5xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl max-w-6xl text-blue-400 pb-6 sm:pb-8 md:pb-10 lg:pb-12">
+            Intelligence in Context
           </h1>
 
-          <p className="text-md sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 mb-6 sm:mb-8 animate-in slide-in-from-bottom duration-700 delay-200 leading-relaxed">
-            The premier AI-powered data platform for navigating Ethiopia's
-            economic landscape. We deliver the critical intelligence that
-            business leaders, investors, and analysts trust.
+          {/* Subtext - Centered */}
+          <p className="text-gray-400 leading-relaxed sm:text-xl lg:text-2xl max-w-5xl mx-auto lg:mx-0 text-center pb-18 py-8">
+            <span className=" font-medium tracking-tight">
+              <span className="text-blue-100">B</span>
+              <span className="text-blue-200">i</span>
+              <span className="text-blue-300">t</span>
+              <span className="text-blue-400">a</span>
+              <span className="text-blue-500">w</span>
+              <span className="text-blue-600">d</span>
+            </span>{" "}
+            is Ethiopia’s premier AI-powered data platform, helping business
+            leaders, investors, and analysts navigate the economic landscape
+            with trusted, actionable intelligence
           </p>
 
-          <form onSubmit={handleSubmit} className="flex justify-center w-full max-w-md animate-in slide-in-from-bottom duration-700 delay-300">
+          <form
+            onSubmit={handleSubmit}
+            className="flex justify-center w-full max-w-md animate-in slide-in-from-bottom duration-700 delay-300"
+          >
             <input
               type="email"
               placeholder="Enter your email"
@@ -123,9 +134,7 @@ const Home: NextPage = () => {
           {message.text && (
             <p
               className={`mt-4 text-sm animate-in fade-in duration-500 ${
-                message.type === "success"
-                  ? "text-green-400"
-                  : "text-red-400"
+                message.type === "success" ? "text-green-400" : "text-red-400"
               }`}
             >
               {message.text}
@@ -142,6 +151,7 @@ const Home: NextPage = () => {
             <h2 className="text-3xl lg:text-4xl font-bold mb-10 text-center text-blue-400">
               The Data Challenge — Our Solutions
             </h2>
+
             <p className="text-xl mb-16 max-w-3xl mx-auto text-center text-gray-300">
               We unify fragmented data to deliver trusted, localized insights
               for your business and investments.
@@ -159,15 +169,32 @@ const Home: NextPage = () => {
                 </p>
                 <ul className="space-y-4 text-lg">
                   {[
-                    ["Fragmented Sources", "Data scattered across multiple sources prevents a single source of truth."],
-                    ["Low Reliability", "Incomplete, outdated datasets lead to weak and wrong insights."],
-                    ["Untimely Insights", "Manual analysis means missed opportunities."],
-                    ["High Entry Barriers", "Data work requires skill and resources most lack."],
-                    ["Lack of Local Context", "Generic models miss Ethiopia's unique dynamics."]
+                    [
+                      "Fragmented Sources",
+                      "Data scattered across multiple sources prevents a single source of truth.",
+                    ],
+                    [
+                      "Low Reliability",
+                      "Incomplete, outdated datasets lead to weak and wrong insights.",
+                    ],
+                    [
+                      "Untimely Insights",
+                      "Manual analysis means missed opportunities.",
+                    ],
+                    [
+                      "High Entry Barriers",
+                      "Data work requires skill and resources most lack.",
+                    ],
+                    [
+                      "Lack of Local Context",
+                      "Generic models miss Ethiopia's unique dynamics.",
+                    ],
                   ].map(([title, desc]) => (
                     <li key={title} className="flex items-start">
                       <XCircle className="h-6 w-6 text-red-400 mr-3 mt-1" />
-                      <span><strong>{title}:</strong> {desc}</span>
+                      <span>
+                        <strong>{title}:</strong> {desc}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -184,15 +211,32 @@ const Home: NextPage = () => {
                 </p>
                 <ul className="space-y-4 text-lg">
                   {[
-                    ["Interactive Dashboards", "Unified economic, sectoral, and financial data for smarter decisions."],
-                    ["AI-Augmented Insights", "Instant explanations of data powering a dashboard."],
-                    ["Bespoke Consulting", "Help building data and AI strategy."],
-                    ["Data Analyst (Coming Soon)", "AI analyst for unified insights across datasets."],
-                    ["Research Assistant (Coming Soon)", "On-demand AI summaries of Ethiopian data."]
+                    [
+                      "Interactive Dashboards",
+                      "Unified economic, sectoral, and financial data for smarter decisions.",
+                    ],
+                    [
+                      "AI-Augmented Insights",
+                      "Instant explanations of data powering a dashboard.",
+                    ],
+                    [
+                      "Bespoke Consulting",
+                      "Help building data and AI strategy.",
+                    ],
+                    [
+                      "Data Analyst (Coming Soon)",
+                      "AI analyst for unified insights across datasets.",
+                    ],
+                    [
+                      "Research Assistant (Coming Soon)",
+                      "On-demand AI summaries of Ethiopian data.",
+                    ],
                   ].map(([title, desc]) => (
                     <li key={title} className="flex items-start">
                       <CheckCircle className="h-6 w-6 text-green-400 mr-3 mt-1" />
-                      <span><strong>{title}:</strong> {desc}</span>
+                      <span>
+                        <strong>{title}:</strong> {desc}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -226,7 +270,7 @@ const Home: NextPage = () => {
 
         {/* Footer */}
         <footer className="text-center py-6 border-t border-white/10">
-          <p>&copy; 2025 Zewd AI. All rights reserved.</p>
+          <p>&copy; 2025 Bitawd. All rights reserved.</p>
         </footer>
       </main>
     </div>
